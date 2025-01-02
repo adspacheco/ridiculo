@@ -1,5 +1,9 @@
 function Home() {
-  return <h1>RIDÍCULO</h1>;
+  return (
+    <div className="h-screen flex justify-center items-center">
+      <h1>RIDÍCULO</h1>
+    </div>
+  );
 }
 
 export default Home;
