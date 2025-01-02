@@ -12,7 +12,7 @@
 O RIDÍCULO é um boilerplate para Next.js tão ~~simples~~ minimalista que:
 
 - Devs não perdem tempo aqui.
-- No-coders choram porque ainda é código.
+- Low-coders choram porque ainda é código.
 
 > 🎤 "ESSE REPO É RIDÍCULO!" - _Everaldo Marques_
 
@@ -20,6 +20,7 @@ O RIDÍCULO é um boilerplate para Next.js tão ~~simples~~ minimalista que:
 
 - ⚛️ Next.js - Porque criar rotas na mão é coisa do passado
 - 🎨 TailwindCSS - CSS para quem tem preguiça de escrever CSS
+- 🐘 PostgreSQL - Sem Prisma, sem ORM – só o essencial
 - 📁 Pasta CORE - Porque organização é o mínimo, né?
 - 🔄 Import absoluto - Sem ../../../ na sua vida
 
@@ -35,8 +36,15 @@ cd ridiculo
 # Instale
 npm install
 
-# RODE
+# Configure seu .env com as credenciais do Postgres
+# Ou não configure e deixe o erro aparecer, você que sabe
+
+# Rode
 npm run dev
+
+# Teste a API
+curl http://localhost:3000/api/ridiculo
+# Vai retornar algo RIDÍCULO
 ```
 
 ## 📄 Package.json
@@ -51,14 +59,10 @@ Nada de version, author ou qualquer outro campo que ninguém lê. Só o básico 
     "dev": "next dev"
   },
   "dependencies": {
-    "next": "15.1.3",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    // ...
   },
   "devDependencies": {
-    "autoprefixer": "10.4.20",
-    "postcss": "8.4.49",
-    "tailwindcss": "3.4.17"
+    // ...
   }
 }
 ```
@@ -68,8 +72,11 @@ Nada de version, author ou qualquer outro campo que ninguém lê. Só o básico 
 ```bash
 core/
   ├── globals.css       # Estilos globais
+  └── api/ database.js  # Conexão com banco de dados
 pages/
   ├── index.js          # Página inicial
+  └── api/
+        └── ridiculo.js # API /api/ridiculo
 public/                 # Arquivos públicos
 jsconfig.json           # Imports absolutos
 tailwind.config.js      # Configuração mínima do Tailwind
@@ -78,7 +85,53 @@ postcss.config.js       # Criado pelo Tailwind. Não mexe.
 
 ## ⚙️ Configurações RIDÍCULAS
 
+### 🐘 Banco de Dados
+
+Conexão mais simples possível com PostgreSQL. Sem pool, sem ORM, sem nada. Você vai precisar de um banco PostgreSQL rodando. Altere as credenciais no arquivo .env:
+
+```javascript
+import { Client } from "pg";
+
+async function query(queryObject) {
+  const client = new Client();
+
+  try {
+    await client.connect();
+    const result = await client.query(queryObject);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    await client.end();
+  }
+}
+
+export default {
+  query: query,
+};
+```
+
+### 🚀 API
+
+A rota mais RIDÍCULA que você já viu:
+
+```javascript
+import database from "core/database";
+
+async function handler(request, response) {
+  const result = await database.query(
+    "SELECT 'RIDICULO' AS message, NOW() AS time"
+  );
+  response.status(200).json(result.rows[0]);
+}
+
+export default handler;
+```
+
 ### 🎨 Tailwind CSS
+
+Só aponta pra pasta pages porque não precisa de mais nada.
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
@@ -90,8 +143,6 @@ module.exports = {
   plugins: [],
 };
 ```
-
-Só aponta pra pasta pages porque não precisa de mais nada.
 
 ### PostCSS
 
