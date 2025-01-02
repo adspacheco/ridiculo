@@ -1,6 +1,11 @@
-# RIDÍCULO
+<p align="center">
+    <h3 align="center">RIDÍCULO</h3>
+  </a>
+</p>
 
-Simples demais para devs. Complexo demais para low-coders.
+<p align="center">
+  Simples demais para devs. Complexo demais para low-coders.
+</p>
 
 ## Sobre
 
@@ -11,7 +16,7 @@ O RIDÍCULO é um boilerplate para Next.js tão minimalista que:
 
 > ESSE REPO É RIDÍCULO!
 
-## Licençca
+## Licença
 MIT - Porque escolher licença é muito trabalho.
 
 Se você chegou até aqui, parabéns! Você gastou mais tempo lendo o README do que gastaria configurando um projeto do zero. VOCÊ É RIDÍCULOOOO!
