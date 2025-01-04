@@ -1,32 +1,37 @@
-<p align="center">
-    <h3 align="center">RIDÍCULO</h3>
-  </a>
+<p align="center">  
+    <h3 align="center">RIDÍCULO</h3>  
 </p>
 
-<p align="center">
-  Simples demais para devs. Complexo demais para low-coders.
+<p align="center">  
+  🚀 Simples demais para devs. Complexo demais para low-coders 🤯  
 </p>
 
-## 🤔 Sobre
+---
 
-O RIDÍCULO é um boilerplate para Next.js tão ~~simples~~ minimalista que:
+## 🤔 **Sobre**
 
-- Devs não perdem tempo aqui.
-- Low-coders choram porque ainda é código.
+O **RIDÍCULO** é um **boilerplate minimalista** para **Next.js** com:
 
-> 🎤 "ESSE REPO É RIDÍCULO!" - _Everaldo Marques_
+- **JavaScript puro**, porque TypeScript é coisa de gente organizada.
+- **PostgreSQL**, sem Prisma, sem ORM – só SQL puro na coragem.
+- **Estrutura mínima**, porque quanto menos código, menos bugs.
 
-## 📦 O que tem dentro?
+> 🎤 **"ESSE REPO É RIDÍCULO!"** - _Everaldo Marques_
 
-- ⚛️ Next.js - Porque criar rotas na mão é coisa do passado
-- 🎨 TailwindCSS - CSS para quem tem preguiça de escrever CSS
-- 🐘 PostgreSQL - Sem Prisma, sem ORM – só o essencial
-- 📁 Pasta CORE - Porque organização é o mínimo, né?
-- 🔄 Import absoluto - Sem ../../../ na sua vida
+---
 
-> 🎤 "BINGO!"
+## 📦 **O que tem dentro?**
 
-## 🚀 Como usar
+- ⚛️ **Next.js** – Porque criar rotas manualmente é coisa do passado.
+- 🐘 **PostgreSQL** – Sem Prisma, sem ORM – só o essencial com a lib **pg**.
+- 📁 **Pasta CORE** – Porque organização também pode ser ridícula.
+- 🔄 **Import absoluto** – Nunca mais digite **../../../**.
+
+> 🎤 **"BINGO!"**
+
+---
+
+## 🚀 **Como usar?**
 
 ```bash
 # Clone
@@ -47,9 +52,11 @@ curl http://localhost:3000/api/ridiculo
 # Vai retornar algo RIDÍCULO
 ```
 
-## 📄 Package.json
+---
 
-Nada de version, author ou qualquer outro campo que ninguém lê. Só o básico pra rodar.
+## 📄 **Package.json**
+
+Nada de **version**, **author** ou qualquer outro campo que ninguém lê. Só o básico pra rodar.
 
 ```json
 {
@@ -59,35 +66,42 @@ Nada de version, author ou qualquer outro campo que ninguém lê. Só o básico 
     "dev": "next dev"
   },
   "dependencies": {
-    // ...
-  },
-  "devDependencies": {
-    // ...
+    "next": "15.1.3",
+    "pg": "8.13.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   }
 }
 ```
 
-## 📂 Estrutura
+---
+
+## 📂 **Estrutura**
 
 ```bash
 core/
-  ├── globals.css       # Estilos globais
-  └── api/ database.js  # Conexão com banco de dados
+  └── database.js       # Conexão com banco de dados
 pages/
   ├── index.js          # Página inicial
   └── api/
         └── ridiculo.js # API /api/ridiculo
 public/                 # Arquivos públicos
 jsconfig.json           # Imports absolutos
-tailwind.config.js      # Configuração mínima do Tailwind
-postcss.config.js       # Criado pelo Tailwind. Não mexe.
 ```
 
-## ⚙️ Configurações RIDÍCULAS
+> **"Só o necessário. E nada além disso."**
 
-### 🐘 Banco de Dados
+---
 
-Conexão mais simples possível com PostgreSQL. Sem pool, sem ORM, sem nada. Você vai precisar de um banco PostgreSQL rodando. Altere as credenciais no arquivo .env:
+## ⚙️ **Configurações RIDÍCULAS**
+
+### 🐘 **Banco de Dados**
+
+Conexão mais simples possível com **PostgreSQL**. Sem pool, sem ORM, sem nada.
+
+Você vai precisar de um banco PostgreSQL rodando. Altere as credenciais no arquivo **`.env`**:
+
+#### 📄 **Arquivo: `core/database.js`**
 
 ```javascript
 import { Client } from "pg";
@@ -112,9 +126,13 @@ export default {
 };
 ```
 
-### 🚀 API
+---
 
-A rota mais RIDÍCULA que você já viu:
+### 🚀 **API**
+
+A rota mais **RIDÍCULA** que você já viu:
+
+**Arquivo:** `/pages/api/ridiculo.js`
 
 ```javascript
 import database from "core/database";
@@ -129,28 +147,11 @@ async function handler(request, response) {
 export default handler;
 ```
 
-### 🎨 Tailwind CSS
+---
 
-Só aponta pra pasta pages porque não precisa de mais nada.
+### 🔄 **Imports Absolutos**
 
-```javascript
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./pages/**/*.js"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-```
-
-### PostCSS
-
-Criado automaticamente pelo Tailwind. Melhor nem abrir.
-
-### 🔄 Imports Absoluts
-
-Digitar ../../../ deveria ser proibido.
+Porque digitar **../../../** deveria ser proibido.
 
 ```json
 {
@@ -160,9 +161,13 @@ Digitar ../../../ deveria ser proibido.
 }
 ```
 
-## 🛡️ Licença
+---
 
-MIT - Porque escolher licença é muito trabalho.
+## 🛡️ **Licença**
 
-<hr class="solid">
-<i>Se você chegou até aqui, parabéns! Você gastou mais tempo lendo o README do que gastaria configurando um projeto do zero. <b>VOCÊ É RIDÍCULOOOO!</b><i>
+**MIT** – Porque escolher licença é muito trabalho.
+
+---
+
+<hr class="solid">  
+<i>Se você chegou até aqui, parabéns! Você gastou mais tempo lendo o README do que gastaria configurando um projeto do zero. <b>VOCÊ É RIDÍCULOOOO!</b></i> 🎉
